@@ -4,6 +4,7 @@
 #include "BinaryInsertionSort.h"
 #include "Node.h"
 #include "fstream"
+#include "LinkedList.h"
 #include "myDataClass.h"
 
 using namespace std;
@@ -21,6 +22,7 @@ int main() {
     }
 
     vector<myDataClass> v;
+    LinkedList l;
     // populate the vector with the data from your data set
     string tmp;
     string name;
@@ -41,23 +43,27 @@ int main() {
             getline(inFile, tmp, ',');   // 6th column is useless
             getline(inFile, college);   // store the 7th column as college
             myDataClass a(name, position, weight, college);
+            l.append(a);
             v.push_back(a);
         }
     }
 
-    // binary insertion sort
-    insertionSort(v, v.size());
+    l.printList();
 
-    // check if sorted
-    for (int i = 1; i < v.size(); i++) {
-        assert(v[i - 1] <= v[i]);
-    }
 
-    // print out sorted list
-    for (int i = 0; i < v.size(); i++) {
-        //you should ovrride << to YourClass
-        cout << v[i] << endl;
-    }
+//    // binary insertion sort
+//    insertionSort(v, v.size());
+//
+//    // check if sorted
+//    for (int i = 1; i < v.size(); i++) {
+//        assert(v[i - 1] <= v[i]);
+//    }
+//
+//    // print out sorted list
+//    for (int i = 0; i < v.size(); i++) {
+//        //you should ovrride << to YourClass
+//        cout << v[i] << endl;
+//    }
 
     // FINISH ME
     inFile.close();
