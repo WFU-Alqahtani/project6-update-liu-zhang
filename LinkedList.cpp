@@ -3,6 +3,8 @@
 //
 
 #include "LinkedList.h"
+#include <iostream>
+#include "myDataClass.h"
 
 LinkedList::LinkedList() {
     head = nullptr;
@@ -10,11 +12,11 @@ LinkedList::LinkedList() {
 
 LinkedList::LinkedList(const LinkedList &list) {
     cout << "copy constructor called" << endl;
-    Node *listCursor = list->head;
+    Node *listCursor = list.head;
     if (listCursor != nullptr) {
         head = new Node(listCursor->value, nullptr);
     }
-    Node *cursor = head
+    Node *cursor = head;
     while (listCursor->next != nullptr) {
         listCursor = listCursor->next;
         cursor->next = new Node(listCursor->value, nullptr);
@@ -22,10 +24,10 @@ LinkedList::LinkedList(const LinkedList &list) {
 }
 
 //Assignment Operator
-LinkedList::LinkedList &operator=(const LinkedList &rhs) {
+LinkedList &LinkedList::operator=(const LinkedList &rhs) {
     cout << "assignment operator called" << endl;
     LinkedList tmp(rhs);
-    swap(*this, rhs);
+    swap(*this, tmp);
     return *this;
 }
 
@@ -69,7 +71,7 @@ bool LinkedList::Delete(myDataClass obj) {
         head = head->next;
         current->next = nullptr;
         delete current;
-        return true
+        return true;
     }
 
     //item is in the list
@@ -96,7 +98,6 @@ myDataClass LinkedList::find(myDataClass obj) {
         }
         cursor = cursor->next;
     }
-    return 0;
 }
 
 void LinkedList::printList() {

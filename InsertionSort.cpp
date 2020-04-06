@@ -48,7 +48,6 @@ int main() {
         }
     }
 
-    l.printList();
 
 
 //    // binary insertion sort

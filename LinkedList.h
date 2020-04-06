@@ -29,7 +29,7 @@ public:
 
     bool Delete(myDataClass obj);
 
-    myDataClass find(myDataClass obj)
+    myDataClass find(myDataClass obj);
 
     void printList();
 
