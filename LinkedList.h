@@ -7,6 +7,7 @@
 
 #include "Node.h"
 #include <iostream>
+#include "myDataClass.h"
 using namespace std;
 
 class LinkedList{
@@ -14,23 +15,28 @@ class LinkedList{
 public:
     //Constructors
     LinkedList();
-    LinkedList(const LinkedList & list);
+
+    LinkedList(const LinkedList &list);
 
     //Assignment Operator
-    LinkedList &operator=(const LinkedList & rhs);
+    LinkedList &operator=(const LinkedList &rhs);
 
     //Destructor
     ~LinkedList();
 
     //Functions. You may not need to use them all
-    void append(YourClass obj);
-    bool Delete (YourClass obj);
-    YourClass find (YourClass obj)
+    void append(myDataClass obj);
+
+    bool Delete(myDataClass obj);
+
+    myDataClass find(myDataClass obj)
+
     void printList();
+
     void InsertionSort();
 
 private:
-    Node* head;
+    Node *head;
 
 };
 

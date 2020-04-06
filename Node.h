@@ -1,11 +1,12 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include "myDataClass.h"
+
 class Node {
 public:
     // Node constructor
-    Node(YourClass v , Node* n = nullptr)
-    {
+    Node(myDataClass v, Node *n = nullptr) {
         value = v;
         next = n;
     }
@@ -17,8 +18,8 @@ public:
     friend class LinkedList;
 private:
 
-    YourClass value;
-    Node* next;
+    myDataClass value;
+    Node *next;
 
 };
 

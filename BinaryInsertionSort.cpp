@@ -1,7 +1,7 @@
 #include "BinaryInsertionSort.h"
 using namespace std;
 
-int binarySearch(vector<YourClass> a, YourClass item, int low, int high) {
+int binarySearch(vector<myDataClass> a, myDataClass item, int low, int high) {
     if (high <= low) {
         return (item > a[low] ? (low + 1) : low);
     }
@@ -19,18 +19,19 @@ int binarySearch(vector<YourClass> a, YourClass item, int low, int high) {
         return binarySearch(a, item, low, mid - 1); // look left
 }
 
-void insertionSort(vector<YourClass> &a, int n) {
+void insertionSort(vector<myDataClass> &a, int n) {
 
     for (int i = 1; i < n; i++) {
         int j = i - 1;
-        int selected = a[i];
+        // FIXME It is int selected = a[i] before, so I think we should change it to myDataClass selected;
+        myDataClass selected = a[i];
 
         // find location where selected should be inserted
         int loc = binarySearch(a, selected, 0, j);
 
         // move all elements after location to create space
         while (j >= loc) {
-            a[j+1] = a[j];
+            a[j + 1] = a[j];
             j--;
         }
         a[loc] = selected;
