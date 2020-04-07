@@ -60,7 +60,7 @@ bool myDataClass::operator<=(const myDataClass &rhs) {
 
 // overloaded insertion operator
 ostream &operator<<(ostream &out, const myDataClass &obj) {
-    out << "Player " << obj.name << "has weigh " << obj.weight << " is a " << obj.position << " from " << obj.college
+    out << "Player " << obj.name << " has weigh " << obj.weight << " is a " << obj.position << " from " << obj.college
         << endl;
     return out;
 }

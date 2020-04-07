@@ -114,42 +114,30 @@ void LinkedList::printList() {
 
 void LinkedList::InsertionSort(myDataClass obj) {
     Node *cursor = head;
-    if (head == nullptr) {
+    Node *previous = nullptr;
+    if (cursor == nullptr) {
         this->append(obj);
     } else {
         while (cursor != nullptr) {
-            if (obj > cursor->value && obj < cursor->next->value) {
-                Node *node = new Node(obj);
+            if (obj < cursor->value) {
+                head = new Node(obj, cursor);
+                break;
+            } else if (obj > cursor->value && obj < cursor->next->value) {
+                cout << "insert" << endl;
                 Node *tmp = cursor->next;
-                cursor->next = node;
-                node->next = tmp;
+                cursor->next = new Node(obj, tmp);
                 break;
             } else {
+                cout << "else else" << endl;
+                previous = cursor;
                 cursor = cursor->next;
+
             }
 
         }
-        this->append(obj);
+        cout << "bula" << endl;
+        previous = new Node(obj, nullptr);
     }
-
-
-
-//    for (int i = 1; i < n; i++) {
-//        int j = i - 1;
-//        // FIXME It is int selected = a[i] before, so I think we should change it to myDataClass selected;
-//        myDataClass selected = a[i];
-//
-//        // find location where selected should be inserted
-//        int loc = binarySearch(a, selected, 0, j);
-//
-//        // move all elements after location to create space
-//        while (j >= loc) {
-//            a[j + 1] = a[j];
-//            j--;
-//        }
-//        a[loc] = selected;
-//
-
 }
 
 
