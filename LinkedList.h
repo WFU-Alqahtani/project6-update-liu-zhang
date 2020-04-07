@@ -33,7 +33,7 @@ public:
 
     void printList();
 
-    void InsertionSort();
+    void InsertionSort(myDataClass obj);
 
 private:
     Node *head;

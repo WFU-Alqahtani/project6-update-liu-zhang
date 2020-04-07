@@ -43,10 +43,12 @@ int main() {
             getline(inFile, tmp, ',');   // 6th column is useless
             getline(inFile, college);   // store the 7th column as college
             myDataClass a(name, position, weight, college);
-            l.append(a);
+            l.InsertionSort(a);
             v.push_back(a);
         }
     }
+
+    l.printList();
 
 
 
