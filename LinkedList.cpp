@@ -114,29 +114,24 @@ void LinkedList::printList() {
 
 void LinkedList::InsertionSort(myDataClass obj) {
     Node *cursor = head;
-    Node *previous = nullptr;
-    if (cursor == nullptr) {
+    if (head == nullptr) {
         this->append(obj);
     } else {
-        while (cursor != nullptr) {
+        while (cursor->next != nullptr) {
             if (obj < cursor->value) {
                 head = new Node(obj, cursor);
                 break;
             } else if (obj > cursor->value && obj < cursor->next->value) {
-                cout << "insert" << endl;
                 Node *tmp = cursor->next;
                 cursor->next = new Node(obj, tmp);
                 break;
             } else {
-                cout << "else else" << endl;
-                previous = cursor;
                 cursor = cursor->next;
-
             }
-
         }
-        cout << "bula" << endl;
-        previous = new Node(obj, nullptr);
+        if (cursor->next == nullptr) {
+            cursor->next = new Node(obj, nullptr);
+        }
     }
 }
 
