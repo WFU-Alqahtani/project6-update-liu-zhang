@@ -20,7 +20,6 @@ int main() {
         cout << " Could not open NBA dataset" << endl;
         return 1; // something bad happened , return non‐zero
     }
-
     vector<myDataClass> v;
     LinkedList l;
     // populate the vector with the data from your data set
@@ -43,7 +42,7 @@ int main() {
             getline(inFile, tmp, ',');   // 6th column is useless
             getline(inFile, college);   // store the 7th column as college
             myDataClass a(name, position, weight, college);
-            l.InsertionSort(a);
+            l.append(a);
             v.push_back(a);
         }
     }
