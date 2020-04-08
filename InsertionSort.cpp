@@ -48,44 +48,22 @@ int main() {
     }
 
 
-    l.printList();
+    // binary insertion sort
+    insertionSort(v, v.size());
 
+    // check if sorted
+    for (int i = 1; i < v.size(); i++) {
+        assert(v[i - 1] <= v[i]);
+    }
 
-
-
-
-//    // binary insertion sort
-//    insertionSort(v, v.size());
-//
-//    // check if sorted
-//    for (int i = 1; i < v.size(); i++) {
-//        assert(v[i - 1] <= v[i]);
-//    }
-//
-//    // print out sorted list
-//    for (int i = 0; i < v.size(); i++) {
-//        //you should ovrride << to YourClass
-//        cout << v[i] << endl;
-//    }
+    // print out sorted list
+    for (int i = 0; i < v.size(); i++) {
+        //you should ovrride << to YourClass
+        cout << v[i] << endl;
+    }
 
     // FINISH ME
     inFile.close();
-//
-//    myDataClass a("Frank", "a", "b", "c");
-//    myDataClass b("Ashley", "a", "b", "c");
-//    myDataClass c("Selina", "a", "b", "c");
-//    LinkedList l;
-//    l.InsertionSort(a);
-//    cout << "a " << endl;
-//    l.printList();
-//    l.InsertionSort(b);
-//    cout << "b " << endl;
-//    l.printList();
-//    cout << "be" << endl;
-//    l.InsertionSort(c);
-//    cout << "c " << endl;
-//    l.printList();
-
 
     return 0;
 }
