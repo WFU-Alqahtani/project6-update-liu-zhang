@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <ctime>
 #include "BinaryInsertionSort.h"
+#include "Node.h"
 #include "fstream"
 #include "LinkedList.h"
 #include "myDataClass.h"
@@ -42,24 +42,17 @@ int main() {
             getline(inFile, tmp, ',');   // 6th column is useless
             getline(inFile, college);   // store the 7th column as college
             myDataClass a(name, position, weight, college);
-            l.append(a);
+            l.InsertionSort(a);
             v.push_back(a);
         }
     }
-    l.InsertionSort();
+
+
     l.printList();
 
 
-//    LinkedList z;
-//    myDataClass a("Frank","a","b","c");
-//    myDataClass b("Frank","a","b","c");
-//    myDataClass c("Selina","a","b","c");
-//    z.append(a);
-//    z.append(b);
-//    z.append(c);
-//    z.printList();
-//    z.Delete(a);
-//    z.printList();
+
+
 
 //    // binary insertion sort
 //    insertionSort(v, v.size());
@@ -77,6 +70,22 @@ int main() {
 
     // FINISH ME
     inFile.close();
+//
+//    myDataClass a("Frank", "a", "b", "c");
+//    myDataClass b("Ashley", "a", "b", "c");
+//    myDataClass c("Selina", "a", "b", "c");
+//    LinkedList l;
+//    l.InsertionSort(a);
+//    cout << "a " << endl;
+//    l.printList();
+//    l.InsertionSort(b);
+//    cout << "b " << endl;
+//    l.printList();
+//    cout << "be" << endl;
+//    l.InsertionSort(c);
+//    cout << "c " << endl;
+//    l.printList();
+
 
     return 0;
 }
