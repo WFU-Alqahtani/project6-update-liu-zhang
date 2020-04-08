@@ -20,12 +20,10 @@ int binarySearch(vector<myDataClass> a, myDataClass item, int low, int high) {
 }
 
 void insertionSort(vector<myDataClass> &a, int n) {
-
     for (int i = 1; i < n; i++) {
         int j = i - 1;
         // FIXME It is int selected = a[i] before, so I think we should change it to myDataClass selected;
         myDataClass selected = a[i];
-
         // find location where selected should be inserted
         int loc = binarySearch(a, selected, 0, j);
 

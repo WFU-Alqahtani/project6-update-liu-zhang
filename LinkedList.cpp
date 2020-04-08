@@ -59,31 +59,41 @@ void LinkedList::append(myDataClass obj) {
 }
 
 bool LinkedList::Delete(myDataClass obj) {
+    cout << "delete" << endl;
     //empty list
     if (head = nullptr) {
+        cout << "head null";
         return false;
     }
 
     //item is the first node
+    cout << "hea" << endl;
     Node *current = head;
     Node *previous;
-    if (head->value == obj) {
+    cout << "?" << endl;
+    myDataClass a = current->value;
+    if (a == obj) {
+        cout << "delete first node";
         head = head->next;
         current->next = nullptr;
         delete current;
         return true;
-    }
+    } else {
+        cout << "??" << endl;
 
-    //item is in the list
-    while (current != nullptr) {
-        if (current->value == obj) {
-            previous->next = current->next;
-            current->next = nullptr;
-            delete current;
-            return true;
+        cout << "before" << endl;
+        //item is in the list
+        while (current != nullptr) {
+            cout << "in the list" << endl;
+            if (current->value == obj) {
+                previous->next = current->next;
+                current->next = nullptr;
+                delete current;
+                return true;
+            }
+            previous = current;
+            current = current->next;
         }
-        previous = current;
-        current = current->next;
     }
 
     //item not find
@@ -112,7 +122,24 @@ void LinkedList::printList() {
     }
 }
 
-void LinkedList::InsertionSort(myDataClass obj) {
+void LinkedList::InsertionSort() {
+    Node *cursor = head;
+    Node *previous;
+    cursor = cursor->next;
+    while (cursor != nullptr) {
+        previous = head;
+        while (previous != cursor) {
+            if (previous->value > cursor->value) {
+                swap(previous->value, cursor->value);
+            } else {
+                previous = previous->next;
+            }
+        }
+        cursor = cursor->next;
+    }
+}
+
+void LinkedList::sortThenInsert(myDataClass obj) {
     Node *cursor = head;
     if (head == nullptr) {
         this->append(obj);
