@@ -1,0 +1,7 @@
+The insertionSort for both vector and linked list include a process of searching and inserting. The pick the first element
+and compare it with the element behind it. If the position is not correct, then we move on the the next. This is the similarity
+of insertionSort on both data strucuture. However, LinkedList has much quicker big O (O(N)) compare to the big O for vector (O(NlogN)).
+That is the difference. This is because for LinkList, you need O(N) to search to the right position but only need O(1) to insert the Node
+since you only need to change the pointer of the node. O(N) * O(1) = O(N). However, since the insertion of a vector requires the shift of
+all the following elements, the insertion process become O(N), and we are using binary search O(logN), O(N) * O(logN) = O(NlogN). As shown
+in the program, when the size of input increases, the time of linkedlist sort doesn't increase too much but skyrocked for vector.
