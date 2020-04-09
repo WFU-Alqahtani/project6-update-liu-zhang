@@ -1,6 +1,9 @@
-//
-// Created by Frankky Boy on 4/5/2020.
-//
+/*************************************************************
+ * author: Frank Liu (Tongtong) & Selina Zhang (Jingwen)
+ * class: CSC112
+ * date: Apr 8
+ * project: project 6
+ *************************************************************/
 
 #ifndef BINARYINSERTIONSORT_MYDATACLASS_H
 #define BINARYINSERTIONSORT_MYDATACLASS_H
@@ -19,6 +22,8 @@ public:
     // constructor
     myDataClass(string name, string position, string weight, string college);
 
+    // overloaded operators
+
     bool operator<(const myDataClass &rhs);
 
     bool operator>(const myDataClass &rhs);
@@ -28,9 +33,12 @@ public:
     // this is defined for the assert test on InsertionSort.cpp
     bool operator<=(const myDataClass &rhs);
 
+    // overload the insertion operator
     friend ostream &operator<<(ostream &out, const myDataClass &obj);
 
 private:
+    // four variables
+    // I will use name to compare
     string name;
     string position;
     string weight;

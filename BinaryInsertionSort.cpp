@@ -1,3 +1,9 @@
+/*************************************************************
+ * author: Frank Liu (Tongtong) & Selina Zhang (Jingwen)
+ * class: CSC112
+ * date: Apr 8
+ * project: project 6
+ *************************************************************/
 #include "BinaryInsertionSort.h"
 using namespace std;
 

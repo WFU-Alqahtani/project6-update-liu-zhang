@@ -1,6 +1,9 @@
-//
-// Created by Frankky Boy on 4/5/2020.
-//
+/*************************************************************
+ * author: Frank Liu (Tongtong) & Selina Zhang (Jingwen)
+ * class: CSC112
+ * date: Apr 8
+ * project: project 6
+ *************************************************************/
 
 #include "myDataClass.h"
 #include <string>

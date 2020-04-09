@@ -1,6 +1,9 @@
-//
-// Created by sarra on 3/30/2020.
-//
+/*************************************************************
+ * author: Frank Liu (Tongtong) & Selina Zhang (Jingwen)
+ * class: CSC112
+ * date: Apr 8
+ * project: project 6
+ *************************************************************/
 
 #ifndef BINARYINSERTIONSORT_LINKEDLIST_H
 #define BINARYINSERTIONSORT_LINKEDLIST_H
@@ -16,6 +19,7 @@ public:
     //Constructors
     LinkedList();
 
+    // copy constructor
     LinkedList(const LinkedList &list);
 
     //Assignment Operator

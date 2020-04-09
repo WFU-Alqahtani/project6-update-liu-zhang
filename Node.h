@@ -1,3 +1,9 @@
+/*************************************************************
+ * author: Frank Liu (Tongtong) & Selina Zhang (Jingwen)
+ * class: CSC112
+ * date: Apr 8
+ * project: project 6
+ *************************************************************/
 #ifndef NODE_H
 #define NODE_H
 
@@ -15,9 +21,10 @@ public:
     ~Node(){
         delete next;
     }
+
     friend class LinkedList;
 private:
-
+    // member variables
     myDataClass value;
     Node *next;
 

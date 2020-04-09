@@ -1,25 +1,33 @@
-//
-// Created by sarra on 3/30/2020.
-//
+/*************************************************************
+ * author: Frank Liu (Tongtong) & Selina Zhang (Jingwen)
+ * class: CSC112
+ * date: Apr 8
+ * project: project 6
+ *************************************************************/
 
 #include "LinkedList.h"
 #include <iostream>
 #include "myDataClass.h"
 
+// define the default constructor
 LinkedList::LinkedList() {
     head = nullptr;
 }
 
+// define the copy constructor
 LinkedList::LinkedList(const LinkedList &list) {
     cout << "copy constructor called" << endl;
+    // creating head for the copied node
     Node *listCursor = list.head;
     if (listCursor != nullptr) {
         head = new Node(listCursor->value, nullptr);
     }
+    // iterate through the original list and copy Node
     Node *cursor = head;
     while (listCursor->next != nullptr) {
         listCursor = listCursor->next;
         cursor->next = new Node(listCursor->value, nullptr);
+        cursor = cursor->next;
     }
 }
 
@@ -27,12 +35,12 @@ LinkedList::LinkedList(const LinkedList &list) {
 LinkedList &LinkedList::operator=(const LinkedList &rhs) {
     cout << "assignment operator called" << endl;
     LinkedList tmp(rhs);
-    swap(*this, tmp);
+    // use copy constructor to create a local copy and swap the head
+    swap(head, tmp.head);
     return *this;
 }
 
 //Destructor
-
 LinkedList::~LinkedList() {
     Node *tmp;
     Node *current = head;
@@ -45,11 +53,14 @@ LinkedList::~LinkedList() {
 }
 
 //Functions. You may not need to use them all
+// appending function
 void LinkedList::append(myDataClass obj) {
     //situations when there's empty list
     if (head == nullptr) {
         head = new Node(obj, nullptr);
-    } else {
+    }
+        // list is not empty
+    else {
         Node *cursor = head;
         while (cursor->next != nullptr) {
             cursor = cursor->next;
@@ -59,32 +70,22 @@ void LinkedList::append(myDataClass obj) {
 }
 
 bool LinkedList::Delete(myDataClass obj) {
-    cout << "delete" << endl;
     //empty list
     if (head = nullptr) {
-        cout << "head null";
         return false;
     }
-
     //item is the first node
-    cout << "hea" << endl;
     Node *current = head;
     Node *previous;
-    cout << "?" << endl;
     myDataClass a = current->value;
     if (a == obj) {
-        cout << "delete first node";
         head = head->next;
         current->next = nullptr;
         delete current;
         return true;
     } else {
-        cout << "??" << endl;
-
-        cout << "before" << endl;
         //item is in the list
         while (current != nullptr) {
-            cout << "in the list" << endl;
             if (current->value == obj) {
                 previous->next = current->next;
                 current->next = nullptr;
@@ -108,13 +109,17 @@ myDataClass LinkedList::find(myDataClass obj) {
         }
         cursor = cursor->next;
     }
+    // we cannot return anything if object is not find so I print out a statement
+    cout << "Object no found" << endl;
 }
 
 void LinkedList::printList() {
     Node *cursor = head;
     if (cursor == nullptr) {
         cout << "empty list" << endl;
-    } else {
+    }
+        // iterate through the list and print each node
+    else {
         while (cursor != nullptr) {
             cout << cursor->value << endl;
             cursor = cursor->next;
@@ -122,12 +127,14 @@ void LinkedList::printList() {
     }
 }
 
+// sort the already existed list
 void LinkedList::InsertionSort() {
     Node *cursor = head;
     Node *previous;
     cursor = cursor->next;
     while (cursor != nullptr) {
         previous = head;
+        // sort from the beginning of the node
         while (previous != cursor) {
             if (previous->value > cursor->value) {
                 swap(previous->value, cursor->value);
@@ -139,23 +146,30 @@ void LinkedList::InsertionSort() {
     }
 }
 
+// sort while inserting
 void LinkedList::sortThenInsert(myDataClass obj) {
     Node *cursor = head;
+    // simply append if it is an empty list
     if (head == nullptr) {
         this->append(obj);
     } else {
         while (cursor->next != nullptr) {
             if (obj < cursor->value) {
                 head = new Node(obj, cursor);
+                // break out if it is the smallest (smaller than the head)
                 break;
             } else if (obj > cursor->value && obj < cursor->next->value) {
                 Node *tmp = cursor->next;
                 cursor->next = new Node(obj, tmp);
+                // break out in the middle if in the right position
                 break;
-            } else {
+            }
+                // keep searching
+            else {
                 cursor = cursor->next;
             }
         }
+        // situations when the node is the largest
         if (cursor->next == nullptr) {
             cursor->next = new Node(obj, nullptr);
         }
